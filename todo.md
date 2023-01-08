@@ -1,0 +1,3 @@
+- [x] Connect spreadsheet.
+- [x] Create new docs from format.
+- [x] Change state on spreadsheet to downloaded.
