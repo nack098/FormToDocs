@@ -31,7 +31,7 @@ def run() :
             doc.render(data)
             date, time = data['Timestamp'].split(' ')
             date = date.replace("/", ".")
-            time = time.replace(":", ".")
+            time = time.replace(":", ";")
             try :
                 os.mkdir(f'.\\output\\{date}')
             except Exception as e :
