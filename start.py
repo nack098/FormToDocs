@@ -24,10 +24,11 @@ def run() :
     status_row = cell.row
     status_col = cell.col
     records = worksheet.get_all_records()
+    notdownload = [data for data in records if data['Status'] == '']
     
     #Create docx file
-    for n,data in enumerate(records) :
-        if data['Status'] == '' :
+    if notdownload != [] :
+        for n,data in enumerate(notdownload) :
             doc.render(data)
             date, time = data['Timestamp'].split(' ')
             date = date.replace("/", ".")
@@ -43,6 +44,8 @@ def run() :
             doc.save(f'.\\output\\{date}\\{time}.docx')
 
             worksheet.update_cell(n+status_row+1, status_col, 'Downloaded')
+    else :
+        print("No file to download")
 
 if __name__ == "__main__" :
     run()
