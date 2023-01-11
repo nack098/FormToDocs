@@ -18,8 +18,11 @@ def run() :
     #Open Template
     doc = DocxTemplate('.\\format\\format.docx')
 
+    fileName = input("Insert file name name : ").strip()
+    sheetName = input("Insert  sheet name : ").strip()
+
     #Open spreadsheet
-    worksheet = openSpreadSheet("cerds.json", "Contact Information (Responses)", "Formatted") 
+    worksheet = openSpreadSheet("cerds.json", fileName, sheetName) 
     cell = worksheet.find('Status')
     status_row = cell.row
     status_col = cell.col
